@@ -21,6 +21,7 @@
     ./wm/i3
     ./wm/hyprland
     ./software
+    ./services
   ];
   home = {
     username = "knakto";

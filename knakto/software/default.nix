@@ -68,5 +68,6 @@
     hmcl
     # jdk21
     jdk8
+    cloudflare-warp
   ];
 }
