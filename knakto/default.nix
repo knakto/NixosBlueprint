@@ -19,16 +19,7 @@
     ];
   imports = [
     ./wm/i3
-    # ./env.nix
-    # ./package.nix
-    # ./config/kitty
-    # ./config/neovim
     ./software
-    # ./config/shell
-    # ./config/git
-    # ./config/fastfetch
-    # ./config/hyprland
-    # ./config/zen
   ];
   home = {
     username = "knakto";
