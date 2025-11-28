@@ -33,6 +33,11 @@
     ", XF86AudioLowerVolume, exec, pamixer -d 5" # ลดเสียง 5%
     ", XF86AudioMute, exec, pamixer -t"          # ปิดเสียง
     ", XF86AudioMicMute, exec, pamixer --default-source -t" # ปิดไมค์
+
+    # เพิ่มแสง 5%
+    ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+    # ลดแสง 5% (แต่ไม่ให้ต่ำกว่า 1% กันจอดับมืดตึ๊ด)
+    ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
   ];
 
   bindel = [

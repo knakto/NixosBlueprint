@@ -103,6 +103,7 @@
   #  wget
     pavucontrol  # ตัวปรับเสียงมาตรฐาน (Volume Mixer) ที่ดีที่สุด
     pamixer      # ตัวปรับเสียงผ่าน Terminal (เอาไว้ bind ปุ่มเพิ่ม/ลดเสียงใน Hyprland)
+    brightnessctl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
