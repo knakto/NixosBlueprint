@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     decoration = {
       shadow_offset = "0 5";
@@ -24,7 +25,7 @@
     inherit (import ./binding.nix) bindl;
     inherit (import ./binding.nix) bindm;
   };
-  wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.PLUGIN_NAME
-  ];
+  # wayland.windowManager.hyprland.plugins = [
+    # pkgs.hyprlandPlugins.PLUGIN_NAME
+  # ];
 }
