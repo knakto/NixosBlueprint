@@ -64,7 +64,8 @@
 
   # 5. Tools: ติดตั้งเครื่องมือไว้เช็คสถานะ GPU
   environment.systemPackages = with pkgs; [
-    mesa# มี glxinfo ไว้เช็ค OpenGL
+    # mesa# มี glxinfo ไว้เช็ค OpenGL
+	mesa-demos
     vulkan-tools    # มี vulkaninfo ไว้เช็ค Vulkan
     intel-gpu-tools # มี intel_gpu_top ไว้ดู Load ของ GPU (เหมือน htop แต่เป็น GPU)
     libva-utils     # มี vainfo ไว้เช็ค Video Codec
