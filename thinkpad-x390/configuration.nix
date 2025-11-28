@@ -117,6 +117,7 @@
     pavucontrol  # ตัวปรับเสียงมาตรฐาน (Volume Mixer) ที่ดีที่สุด
     pamixer      # ตัวปรับเสียงผ่าน Terminal (เอาไว้ bind ปุ่มเพิ่ม/ลดเสียงใน Hyprland)
     brightnessctl
+    cloudflare-warp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,4 +150,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.nix-ld.enable = true;
+
+  services.cloudflare-warp.enable = true;
 }

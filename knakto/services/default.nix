@@ -1,6 +1,5 @@
 {pkg, ...}:
 {
   imports = [
-    ./cloudflare.nix
   ];
 }
