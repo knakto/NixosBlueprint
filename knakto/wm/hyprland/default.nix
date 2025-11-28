@@ -7,12 +7,17 @@
 
     "$mod" = "SUPER";
 
-    bindm = [
-      # mouse movements
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
+    # bindm = [
+    #   # mouse movements
+    #   "$mod, mouse:272, movewindow"
+    #   "$mod, mouse:273, resizewindow"
+    #   "$mod ALT, mouse:272, resizewindow"
+    # ];
+
+      inherit (import ./binding.nix) bind;
+      inherit (import ./binding.nix) bindel;
+      inherit (import ./binding.nix) bindl;
+      inherit (import ./binding.nix) bindm;
   };
   wayland.windowManager.hyprland.plugins = [
     pkgs.hyprlandPlugins.PLUGIN_NAME
