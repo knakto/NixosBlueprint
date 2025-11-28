@@ -26,6 +26,19 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.networkmanager.wifi.powersave = false;
+
+  boot.kernel.sysctl = {
+    # ใช้ BBR (Bottleneck Bandwidth and RTT) ของ Google
+    # เหมาะมากกับเน็ตที่ Ping สูงแต่ Bandwidth เยอะ (แบบ TH -> US)
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    
+    # เพิ่มขนาด Buffer กันข้อมูลล้น (ลดอาการ Lag Spikes 333ms)
+    "net.core.rmem_max" = 2500000;
+    "net.core.wmem_max" = 2500000;
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Bangkok";
 
