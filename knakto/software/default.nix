@@ -13,7 +13,7 @@
     valgrind
     pciutils #lspci
     gparted
-    miru
+    # miru
     wine
     docker
     bear
