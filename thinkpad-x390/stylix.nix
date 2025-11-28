@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  stylix.image = ../images/1138398.jpg; # <-- ชี้ไปที่ไฟล์รูปในเครื่องนาย
+  imputs.stylix.image = ../images/1138398.jpg; # <-- ชี้ไปที่ไฟล์รูปในเครื่องนาย
   # หรือ
   # stylix.base16Scheme = "path/to/colors.yaml";
 
