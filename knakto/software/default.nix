@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./nvf
+    ./git
   ];
   home.packages = with pkgs; [
     home-manager
