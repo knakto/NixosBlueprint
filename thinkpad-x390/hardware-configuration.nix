@@ -70,4 +70,21 @@
     intel-gpu-tools # มี intel_gpu_top ไว้ดู Load ของ GPU (เหมือน htop แต่เป็น GPU)
     libva-utils     # มี vainfo ไว้เช็ค Video Codec
   ];
+
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_congestion_control" = lib.mkForce "bbr";
+    "net.core.default_qdisc" = lib.mkForce "fq";
+  };
+
+  # 2. 🔥 ยาแรง: Config Driver Intel โดยตรง (สำคัญสำหรับ ThinkPad)
+  boot.extraModprobeConfig = ''
+    # ปิด Power Management ของตัวรับสัญญาณ
+    options iwlwifi power_save=0
+    
+    # ปิดการรวม Packet (Aggregation) บางทีช่วยลด Jitter ในเน็ตที่ไม่นิ่ง
+    options iwlwifi 11n_disable=1
+    
+    # บังคับโหมด Active ตลอดเวลา (ห้าม Sleep)
+    options iwlmvm power_scheme=1
+  '';
 }
