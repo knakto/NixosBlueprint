@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./package.nix
+    ./waybar.nix
   ];
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
