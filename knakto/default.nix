@@ -22,7 +22,7 @@
     # ./package.nix
     # ./config/kitty
     # ./config/neovim
-    # ./config/nvf
+    ./config/nvf
     # ./config/shell
     # ./config/git
     # ./config/fastfetch
