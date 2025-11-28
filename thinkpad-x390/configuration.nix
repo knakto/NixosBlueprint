@@ -69,11 +69,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+    wireplumber.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -100,6 +101,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    pavucontrol  # ตัวปรับเสียงมาตรฐาน (Volume Mixer) ที่ดีที่สุด
+    pamixer      # ตัวปรับเสียงผ่าน Terminal (เอาไว้ bind ปุ่มเพิ่ม/ลดเสียงใน Hyprland)
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
