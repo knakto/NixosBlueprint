@@ -14,4 +14,12 @@ in {
       size = 24; # ขนาดมาตรฐานคือ 24, ถ้าอยากให้ใหญ่สะใจใส่ 32
     };
   };
+  stylix.fonts = {
+    sizes = {
+      terminal = 14; # ปกติ 12
+      applications = 12; # ปกติ 10-11
+      desktop = 12;
+      popups = 12;
+    };
+  };
 }
