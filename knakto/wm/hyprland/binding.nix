@@ -28,6 +28,11 @@
 
     "ALT, ESCAPE, exec, poweroff"
     "ALT, M, submap, movewindow"
+
+    ", XF86AudioRaiseVolume, exec, pamixer -i 5" # เพิ่มเสียง 5%
+    ", XF86AudioLowerVolume, exec, pamixer -d 5" # ลดเสียง 5%
+    ", XF86AudioMute, exec, pamixer -t"          # ปิดเสียง
+    ", XF86AudioMicMute, exec, pamixer --default-source -t" # ปิดไมค์
   ];
 
   bindel = [
