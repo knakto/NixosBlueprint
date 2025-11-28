@@ -18,11 +18,12 @@
 	"vscode"
     ];
   imports = [
+    ./wm/i3
     # ./env.nix
     # ./package.nix
     # ./config/kitty
     # ./config/neovim
-    ./config/nvf
+    ./software/nvf
     # ./config/shell
     # ./config/git
     # ./config/fastfetch

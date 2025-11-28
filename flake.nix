@@ -35,7 +35,7 @@
         modules = [
           ./knakto
           inputs.nvf.homeManagerModules.default
-          inputs.caelestia-shell.homeManagerModules.default
+          # inputs.caelestia-shell.homeManagerModules.default
         ];
       };
     };
