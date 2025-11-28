@@ -3,6 +3,7 @@
     ./nvf
     ./git
     ./shell
+    ./zen
   ];
   home.packages = with pkgs; [
     home-manager
