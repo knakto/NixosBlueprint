@@ -2,6 +2,7 @@
   imports = [
     ./nvf
     ./git
+    ./shell
   ];
   home.packages = with pkgs; [
     home-manager
