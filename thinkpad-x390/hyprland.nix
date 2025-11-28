@@ -21,7 +21,7 @@ in {
   };
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
+    # extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
   };
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
