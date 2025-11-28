@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -36,4 +36,37 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+###############
+#   Graphic   #
+###############
+
+  # 2. Graphics Enable: เปิดใช้งาน Mesa และ OpenGL
+  hardware.graphics = {
+    enable = true;
+    
+    # สำคัญ! เปิดรองรับ 32-bit (สำหรับ Steam, Wine, Lutris)
+    enable32Bit = true; 
+
+    # 3. Hardware Acceleration (VAAPI): ให้ GPU ช่วยถอดรหัสวิดีโอ
+    extraPackages = with pkgs; [
+      intel-media-driver   # Driver หลักสำหรับ Intel รุ่นใหม่ (Broadwell+) *แนะนำตัวนี้*
+      intel-vaapi-driver   # Driver ตัวเก่า (เผื่อไว้เป็น Fallback แต่ปกติไม่ค่อยใช้แล้ว)
+      libvdpau-va-gl       # แปลง VDPAU (ของ Nvidia เดิม) ให้วิ่งผ่าน VAAPI
+    ];
+  };
+
+  # 4. System Environment Variables (บังคับบางแอปให้รู้จัก Driver)
+  environment.sessionVariables = { 
+    # บอกให้ Firefox/Chrome รู้ว่าให้ใช้ Driver ตัวไหนถอดรหัสวิดีโอ
+    LIBVA_DRIVER_NAME = "iHD"; 
+  };
+
+  # 5. Tools: ติดตั้งเครื่องมือไว้เช็คสถานะ GPU
+  environment.systemPackages = with pkgs; [
+    mesa# มี glxinfo ไว้เช็ค OpenGL
+    vulkan-tools    # มี vulkaninfo ไว้เช็ค Vulkan
+    intel-gpu-tools # มี intel_gpu_top ไว้ดู Load ของ GPU (เหมือน htop แต่เป็น GPU)
+    libva-utils     # มี vainfo ไว้เช็ค Video Codec
+  ];
 }
