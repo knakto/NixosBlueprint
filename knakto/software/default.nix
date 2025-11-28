@@ -4,6 +4,7 @@
     ./git
     ./shell
     ./zen
+    ./kitty
   ];
   home.packages = with pkgs; [
     home-manager
