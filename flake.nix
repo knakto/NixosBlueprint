@@ -23,9 +23,34 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = {self, ...} @ inputs: {
-    packages.x86_64-linux.hello = inputs.nixpkgs.legacyPackages.x86_64-linux.hello;
+  outputs = {self, ...} @ inputs: let
+    inherit (self) outputs; #update outputs = self.outputs for get all output
+    inherit (inputs.nixpkgs) lib;
+    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+  in {
+    homeConfigurations = {
+      knakto = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit self inputs outputs;};
+        modules = [
+          # ./home/home.nix
+          # inputs.nvf.homeManagerModules.default
+          # inputs.caelestia-shell.homeManagerModules.default
+        ];
+      };
+    };
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+    nixosConfigurations = {
+      thinkpad-x390 = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit self inputs outputs;};
+        modules = [
+          # ./host/config.nix
+          # inputs.home-manager.nixosModules.home-manager
+          # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x390
+          # inputs.nix-flatpak.nixosModules.nix-flatpak
+        ];
+      };
+    };
   };
 }
