@@ -5,64 +5,60 @@
 }: let
   inherit (inputs) stylix;
 in {
-  # 1. ติดตั้ง Package Font ที่จำเป็น
+	# 1. ติดตั้ง Font: เอาเฉพาะตัวหลักที่ "ต้องมี" และ "มีแน่ๆ"
   fonts.packages = with pkgs; [
-    # ฟอนต์หลักของโลก (Google Noto)
-    noto-fonts
-    noto-fonts-cjk-sans # ภาษาจีน/ญี่ปุ่น/เกาหลี
-    noto-fonts-color-emoji # อิโมจิ 💩
-
-    # ฟอนต์ภาษาไทย (เลือกตัวสวยๆ)
-    # kanit
-    # sarabun
-
-    # ฟอนต์ที่โปรแกรม Java/Legacy ชอบเรียกหา (สำคัญสำหรับ Minecraft Launcher)
-    liberation_ttf # ใช้แทน Arial/Times New Roman
-    dejavu_fonts # Java ชอบตัวนี้มาก
-    freefont_ttf
+    noto-fonts            # รองรับภาษาไทย + อังกฤษ + ทั่วโลก
+    noto-fonts-cjk-sans   # จีน ญี่ปุ่น เกาหลี
+    noto-fonts-color-emoji # ตัวแก้ Emoji สี่เหลี่ยม 💩
+    nerd-fonts.jetbrains-mono # ไอคอน Dev
   ];
 
-  # 2. ตั้งค่า Default Font (สำคัญ! ไม่งั้นโปรแกรมเลือกไม่ถูก)
+  # 2. Config ให้ระบบเลือกใช้ Noto เป็นหลัก
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = ["Noto Serif" "Sarabun"];
-      sansSerif = ["Noto Sans" "Kanit"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Sans Mono"];
+      serif = [ "Noto Serif" "Noto Serif Thai" ];
+      sansSerif = [ "Noto Sans" "Noto Sans Thai" ]; 
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Sans Mono" ];
     };
     allowBitmaps = false;
-
-    # บังคับลบเหลี่ยม (Anti-aliasing)
     antialias = true;
   };
 
+  # 3. Config Stylix (ชี้ไปที่ Noto ทั้งหมด)
   stylix = {
-    image = ../images/1138398.jpg; # <-- ชี้ไปที่ไฟล์รูปในเครื่องนาย
-    polarity = "dark"; # หรือ "light"
+    image = ../images/1138398.jpg; 
+    polarity = "dark";
+    
     cursor = {
-      package = pkgs.bibata-cursors; # แนะนำตัวนี้! ยอดฮิต เห็นชัด
-      name = "Bibata-Modern-Ice"; # สีขาวขอบดำ (Ice) หรือจะเอาสีดำ (Classic) ก็ได้
-      size = 24; # ขนาดมาตรฐานคือ 24, ถ้าอยากให้ใหญ่สะใจใส่ 32
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
     };
-  };
-  stylix.fonts = {
-    serif = {
-      package = pkgs.noto-fonts;
-      name = "Noto Serif";
-    };
-    sansSerif = {
-      package = pkgs.noto-fonts; # หรือ pkgs.google-fonts.kanit
-      name = "Noto Sans"; # หรือ "Kanit"
-    };
-    monospace = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrainsMono Nerd Font";
-    };
-    sizes = {
-      terminal = 14; # ปกติ 12
-      applications = 12; # ปกติ 10-11
-      desktop = 12;
-      popups = 12;
+    
+    fonts = {
+      # ใช้ Noto ทั้งหมด (มันมีภาษาไทยในตัว)
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Serif"; 
+      };
+      
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
+      
+      sizes = {
+        terminal = 14;
+        applications = 12;
+        desktop = 12;
+        popups = 12;
+      };
     };
   };
 }
