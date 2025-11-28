@@ -33,9 +33,9 @@
         inherit pkgs;
         extraSpecialArgs = {inherit self inputs outputs;};
         modules = [
-          # ./home/home.nix
-          # inputs.nvf.homeManagerModules.default
-          # inputs.caelestia-shell.homeManagerModules.default
+          ./knakto
+          inputs.nvf.homeManagerModules.default
+          inputs.caelestia-shell.homeManagerModules.default
         ];
       };
     };
@@ -45,9 +45,9 @@
         system = "x86_64-linux";
         specialArgs = {inherit self inputs outputs;};
         modules = [
-          # ./host/config.nix
-          # inputs.home-manager.nixosModules.home-manager
-          # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x390
+          ./thinkpad-x390/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x390
           # inputs.nix-flatpak.nixosModules.nix-flatpak
         ];
       };
