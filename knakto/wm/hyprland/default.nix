@@ -1,10 +1,20 @@
 {pkgs, ...}: {
+  imports = [
+    ./package.nix
+  ];
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     # decoration = {
     #   shadow_offset = "0 5";
     #   "col.shadow" = "rgba(00000099)";
     # };
+    monitor = [
+      # monitor = ชื่อจอ, ความละเอียด, ตำแหน่ง, scale
+      "eDP-1,1920x1080@60,0x0,1"
+
+      # เผื่อเสียบจออื่นให้มัน Auto ไป
+      ",preferred,auto,1"
+    ];
 
     input = {
       kb_layout = "us,th";
@@ -26,6 +36,6 @@
     inherit (import ./binding.nix) bindm;
   };
   # wayland.windowManager.hyprland.plugins = [
-    # pkgs.hyprlandPlugins.PLUGIN_NAME
+  # pkgs.hyprlandPlugins.PLUGIN_NAME
   # ];
 }
