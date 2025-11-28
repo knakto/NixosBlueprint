@@ -19,6 +19,7 @@
     ];
   imports = [
     ./wm/i3
+    ./wm/hyprland
     ./software
   ];
   home = {

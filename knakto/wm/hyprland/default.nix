@@ -5,6 +5,11 @@
       "col.shadow" = "rgba(00000099)";
     };
 
+    input = {
+      kb_layout = "us,th";
+      kb_options = "grp:win_space_toggle";
+    };
+
     "$mod" = "SUPER";
 
     # bindm = [
@@ -14,10 +19,10 @@
     #   "$mod ALT, mouse:272, resizewindow"
     # ];
 
-      inherit (import ./binding.nix) bind;
-      inherit (import ./binding.nix) bindel;
-      inherit (import ./binding.nix) bindl;
-      inherit (import ./binding.nix) bindm;
+    inherit (import ./binding.nix) bind;
+    inherit (import ./binding.nix) bindel;
+    inherit (import ./binding.nix) bindl;
+    inherit (import ./binding.nix) bindm;
   };
   wayland.windowManager.hyprland.plugins = [
     pkgs.hyprlandPlugins.PLUGIN_NAME
