@@ -48,6 +48,7 @@
           ./thinkpad-x390/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x390
+          inputs.stylix.nixosModules.stylix
           # inputs.nix-flatpak.nixosModules.nix-flatpak
         ];
       };
