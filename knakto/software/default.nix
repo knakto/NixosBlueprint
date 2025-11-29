@@ -6,6 +6,7 @@
     ./zen
     ./kitty
     ./fastfetch
+    ./dolphin
   ];
   home.packages = with pkgs; [
     home-manager
