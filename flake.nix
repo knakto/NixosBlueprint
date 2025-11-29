@@ -25,8 +25,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland"; # บังคับเวอร์ชัน
     };
-
-    # 2. Dynamic Cursors (แยกมา)
+    hyprfocus = {
+      url = "github:pyt0xic/hyprfocus";
+      inputs.hyprland.follows = "hyprland"; # บังคับเวอร์ชันเหมือนเดิม ห้ามลืม!
+    };
     hypr-dynamic-cursors = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
