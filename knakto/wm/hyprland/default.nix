@@ -64,7 +64,7 @@
     "plugin:dynamic-cursors" = {
       # เปิดใช้งาน
       enabled = true;
-      mode = "rotate";
+      mode = "tilt";
       threshold = 2; # ความเร็วต่ำสุดที่จะเริ่ม effect
 
       # ตั้งค่าเฉพาะโหมด stretch (ยืดหด)
