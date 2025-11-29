@@ -63,15 +63,8 @@
 
 	inherit (import ./plugins.nix) "plugin:hyprexpo";
 	inherit (import ./plugins.nix) "plugin:dynamic-cursors";
-	inherit (import ./plugins.nix) "plugin:hyprfocus";
   };
   wayland.windowManager.hyprland.plugins = [
-    # pkgs.hyprlandPlugins.PLUGIN_NAME
-    # hypr-dynamic-cursors
-    # hyprbars
-    # hyprexpo
-    # hyprfocus
-    inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
     inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];

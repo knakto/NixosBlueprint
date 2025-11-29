@@ -38,41 +38,4 @@
     gesture_distance = 300;
     gesture_positive = true;
   };
-
-  "plugin:hyprfocus" = {
-    enabled = true;
-
-    # Focus Animation
-    animate_floating = true;
-    animate_workspacechange = true;
-    focus_animation = "shrink"; # รูปแบบ: shrink, flash, flash_dim
-
-    # Bezier Curve (ความสมูท)
-    bezier = [
-      "bezIn, 0.5,0.0,1.0,0.5"
-      "bezOut, 0.0,0.5,0.5,1.0"
-      "overshot, 0.05, 0.9, 0.1, 1.05"
-      "smoothOut, 0.36, 0, 0.66, -0.56"
-      "smoothIn, 0.25, 1, 0.5, 1"
-      "realsmooth, 0.28,0.29,0.69,1.08"
-    ];
-
-    # Config ของ Flash effect
-    flash = {
-      flash_opacity = 0.7;
-      in_bezier = "realsmooth";
-      in_speed = 0.5;
-      out_bezier = "realsmooth";
-      out_speed = 3;
-    };
-
-    # Config ของ Shrink effect (หน้าต่างหดแล้วขยาย)
-    shrink = {
-      shrink_percentage = 0.95;
-      in_bezier = "realsmooth";
-      in_speed = 1;
-      out_bezier = "realsmooth";
-      out_speed = 2;
-    };
-  };
 }
