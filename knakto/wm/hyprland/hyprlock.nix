@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{self, pkgs, ...}: {
   # ถ้า Stylix แย่งซีน (มันชอบ gen config ทับ) ให้ปิด target นี้
   # stylix.targets.hyprlock.enable = false;
 
@@ -15,7 +15,7 @@
       # 1. พื้นหลัง (เอา Wallpaper มาเบลอ)
       background = [
         {
-          path = "/home/knakto/NixosBlueprint/images/1148498.jpg"; # ⚠️ เช็ค Path รูปให้ตรงเป๊ะๆ นะครับ!
+          path = "${self}/images/1148498.jpg"; # ⚠️ เช็ค Path รูปให้ตรงเป๊ะๆ นะครับ!
           blur_passes = 2; # เบลอ 2 ชั้น (ยิ่งเยอะยิ่งนวล แต่กิน GPU)
           contrast = 0.8916;
           brightness = 0.8172;
