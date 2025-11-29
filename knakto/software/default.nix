@@ -69,5 +69,8 @@
     hmcl
     # jdk21
     jdk8
+    appflowy
+    logseq
+    nextcloud-client
   ];
 }
