@@ -61,12 +61,12 @@
     inherit (import ./binding.nix) bindel;
     inherit (import ./binding.nix) bindl;
     inherit (import ./binding.nix) bindm;
-
-	inherit (import ./plugins.nix) "plugin:hyprexpo";
-	inherit (import ./plugins.nix) "plugin:dynamic-cursors";
+	#
+	# inherit (import ./plugins.nix) "plugin:hyprexpo";
+	# inherit (import ./plugins.nix) "plugin:dynamic-cursors";
   };
-  wayland.windowManager.hyprland.plugins = [
-    inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-    inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-  ];
+  # wayland.windowManager.hyprland.plugins = [
+  #   inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+  #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+  # ];
 }
