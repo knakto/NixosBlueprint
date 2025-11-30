@@ -22,7 +22,7 @@
     "$mod, J, movefocus, d"
     "$mod, J, bringactivetotop,"
 
-    "$mod, Tab, hyprexpo:expo, toggle"
+    # "$mod, Tab, hyprexpo:expo, toggle"
 
     "CTRL ALT, T, exec, kitty"
     # "CTRL ALT, L, exec, swaylock"
