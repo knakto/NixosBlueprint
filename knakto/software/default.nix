@@ -71,6 +71,6 @@
     jdk8
     appflowy
     logseq
-    nextcloud-client
+    # nextcloud-client
   ];
 }
