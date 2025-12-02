@@ -155,6 +155,7 @@ in {
             package = toggleterm-nvim;
             setup = ''
               require("toggleterm").setup({
+                shell = "/home/knakto/.nix-profile/bin/zsh",
                 function(term)
                   if term.direction == "horizontal" then
                     return 17
