@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./stylix.nix
       ./hyprland.nix
+      ./docker.nix
     ];
 
   # Bootloader.
