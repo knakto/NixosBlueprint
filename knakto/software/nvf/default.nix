@@ -90,7 +90,8 @@ in {
 
         assistant = {
           copilot = {
-            enable = true;
+            enable = false;
+            cmp.enable = true;
           };
         };
 
