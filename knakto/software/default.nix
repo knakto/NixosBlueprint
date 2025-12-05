@@ -42,6 +42,7 @@
     btop
     curl
     tree
+    superhtml
     #--------------------------------#
     clang-tools
     clang

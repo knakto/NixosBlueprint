@@ -88,6 +88,12 @@ in {
           preview.markdownPreview.enable = true;
         };
 
+        assistant = {
+          copilot = {
+            enable = true;
+          };
+        };
+
         ui = {
           borders.enable = true;
           noice.enable = true;
@@ -121,16 +127,16 @@ in {
         '';
         extraPlugins = with pkgs.vimPlugins; {
           # lualine-nvim = import ./modules/lualine {inherit config pkgs;};
-          copilot-vim = {
-            package = copilot-vim;
-            setup = ''
-              --require('copilot').setup {}
-              vim.keymap.set('i', '<m-l>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-              vim.g.copilot_no_tab_map = true
-              vim.g.copilot_assume_mapped = true
-              vim.g.copilot_cr_tab_map = true
-            '';
-          };
+          # copilot-vim = {
+          #   package = copilot-vim;
+          #   setup = ''
+          #     --require('copilot').setup {}
+          #     vim.keymap.set('i', '<m-l>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+          #     vim.g.copilot_no_tab_map = true
+          #     vim.g.copilot_assume_mapped = true
+          #     vim.g.copilot_cr_tab_map = true
+          #   '';
+          # };
           # CopilotChat-nvim = {
           #   package = CopilotChat-nvim;
           #   setup = ''
