@@ -22,6 +22,9 @@
     "$mod, J, movefocus, d"
     "$mod, J, bringactivetotop,"
 
+    # "CTRL ALT, S, exec, wayshot -s \"\$(slurp)\""
+    "CTRL ALT, S, exec, grim -g \"\$(slurp)\" ~/Pictures/Screenshots/\$(date +%s).png | wl-copy"
+
     # "$mod, Tab, hyprexpo:expo, toggle"
 
     "CTRL ALT, T, exec, kitty"

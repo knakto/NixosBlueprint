@@ -9,6 +9,9 @@
     # swaylock-effects
     # swayidle
     fuzzel
+    slurp
+    grim
+    wl-clipboard
     # hyprcursor
     # bibata-cursors
   ];
