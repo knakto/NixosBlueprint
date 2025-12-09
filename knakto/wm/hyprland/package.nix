@@ -8,6 +8,7 @@
     # inputs.caelestia-shell.packages.x86_64-linux.default
     # swaylock-effects
     # swayidle
+    swww
     fuzzel
     slurp
     grim
