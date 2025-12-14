@@ -28,7 +28,7 @@
     exec-once = [
       # "hibernate.sh"
       # "caelestia shell"
-      "swww-daemon"
+      "swww-daemon &"
       "waybar"
     ];
     monitor = [

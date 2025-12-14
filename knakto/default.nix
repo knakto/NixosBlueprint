@@ -15,7 +15,8 @@
       "spotify"
       "copilot.vim"
       "corefonts"
-	"vscode"
+      "vscode"
+      "davinci-resolve"
     ];
   imports = [
     ./wm/i3

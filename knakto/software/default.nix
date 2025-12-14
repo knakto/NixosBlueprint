@@ -73,5 +73,6 @@
     appflowy
     logseq
     # nextcloud-client
+    davinci-resolve
   ];
 }
