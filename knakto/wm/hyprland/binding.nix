@@ -23,7 +23,7 @@
     "$mod, J, bringactivetotop,"
 
     # "CTRL ALT, S, exec, wayshot -s \"\$(slurp)\""
-    "CTRL ALT, S, exec, grim -g \"\$(slurp)\" ~/Pictures/Screenshots/\$(date +%s).png | wl-copy"
+    "CTRL ALT, S, exec, grim -s 1 -g \"\$(slurp)\" ~/Pictures/Screenshots/\$(date +%s).png | wl-copy"
 
     # "$mod, Tab, hyprexpo:expo, toggle"
 
