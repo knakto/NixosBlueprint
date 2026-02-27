@@ -120,6 +120,10 @@ in {
           softtabstop = -1;
           tabstop = 4;
           list = true;
+          # foldmethod = "marker";
+          foldtext = "foldtext()";
+          fillchars = "fold:\ ";
+          # foldmarker="///{,///}";
         };
         luaConfigRC.aerial-nvim = entryAnywhere ''
           vim.opt.conceallevel = 2
@@ -158,6 +162,81 @@ in {
           #     vim.keymap.set({"n", "i", "v"}, "<C-c>", ":CopilotChatToggle<CR>", { desc = "copilot" })
           #   '';
           # };
+          pretty-fold-nvim = {
+            package = pretty-fold-nvim;
+            setup = ''
+              vim.opt.foldmethod = "expr"
+              vim.opt.foldexpr = "v:lua.MultiMarkerFoldExpr()"
+              vim.opt.foldenable = true
+              vim.opt.foldlevel = 99        -- เปิด fold ทั้งหมด
+              vim.opt.foldminlines = 1
+              vim.opt.fillchars = {
+                fold = " ",
+                foldopen = "",
+                foldclose = "",
+                foldsep = " ",
+              }
+
+                local foldMap = {
+                  {"^//<==", "^//==>", 1},
+                  {"^//<", "^//>", 1},
+                  {"^//<<", "^//>>", 2},
+                  {"^//<<<", "^//>>>", 3},
+                }
+
+              function _G.MultiMarkerFoldText()
+                local line = vim.fn.getline(vim.v.foldstart)
+
+                -- เอา marker ออก
+                --line = line:gsub("^//<==%s*", "")
+                --line = line:gsub("%s*==>.*$", "")
+                --line = vim.trim(line)
+
+                for _, rule in ipairs(foldMap) do
+                  local open_pat  = rule[1]
+                  local close_pat = rule[2]
+               
+                  -- ลบ opener ที่ต้นบรรทัด
+                  line = line:gsub(open_pat .. "%s*", "")
+               
+                  -- ลบ closer ถ้ามีอยู่ท้ายบรรทัดเดียวกัน
+                  line = line:gsub("%s*" .. close_pat .. ".*$", "")
+                end
+
+
+                local count = vim.v.foldend - vim.v.foldstart + 1
+                local width = vim.api.nvim_win_get_width(0)
+
+                local suffix = " " .. count .. " lines"
+                local padding = width - 30 - vim.fn.strdisplaywidth(line) - vim.fn.strdisplaywidth(suffix) - 4
+                if padding < 0 then padding = 0 end
+
+                return " " .. line .. string.rep("─", padding) .. suffix
+              end
+
+              vim.opt.foldtext = "v:lua.MultiMarkerFoldText()"
+
+              function _G.MultiMarkerFoldExpr()
+                local line = vim.fn.getline(vim.v.lnum)
+
+                for _, rule in ipairs(foldMap) do
+                  local open_pat  = rule[1]
+                  local close_pat = rule[2]
+                  local level     = rule[3]
+
+                  if line:match(open_pat) then
+                    return ">" .. level
+                  end
+
+                  if line:match(close_pat) then
+                    return "<" .. level
+                  end
+                end
+                
+                return "="
+              end
+            '';
+          };
           toggleterm-nvim = {
             package = toggleterm-nvim;
             setup = ''

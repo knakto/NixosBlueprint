@@ -75,5 +75,7 @@
     # nextcloud-client
     # davinci-resolve
     heroic
+    libre
+    neovim
   ];
 }
